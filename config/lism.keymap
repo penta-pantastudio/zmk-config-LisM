@@ -44,93 +44,52 @@
         };
     };
 
+/ {
     keymap {
         compatible = "zmk,keymap";
 
+        // Layer 0: Default Layer
         default_layer {
-            display-name = "Default Layer";
+            display-name = "Base";
             bindings = <
-                &kp Q            &kp W              &kp E                 &kp R                   &kp T                                                  &kp Y        &kp U            &kp I              &kp O               &kp P
-                &kp A            &mt LALT S         &mt LSHIFT D          &mt LGUI F              &mt LCTRL G                                            &mt RCTRL H  &mt RGUI J       &mt RSHIFT K       &mt RALT L          &lt 3 SEMICOLON
-                &kp Z            &kp X              &kp C                 &kp V                   &kp B                                                  &kp N        &kp M            &kp COMMA          &kp DOT             &kp SLASH
-                &lt 4 DELETE     &tog 1             &lt 1 TAB             &kp LS(LG(N4))          &lt 2 SPACE       &lt 3 ESC           &lt 3 BACKSPACE  &lt 2 ENTER  &kp LS(LG(N4))   &kp F7             &kp F10             &lt 4 F12 
+                &kp Q          &lt 1 L        &lt 2 U        &lt 3 COMMA    &kp DOT                                                 &kp F          &lt 3 W        &lt 2 R        &lt 1 Y        &kp P
+                &kp E          &kp I          &kp A          &kp O          &kp MINUS                                               &kp K          &kp T          &kp N          &kp S          &kp H
+                &kp Z          &kp X          &kp C          &kp V          &kp SLASH                                               &kp G          &kp D          &kp M          &kp J          &kp B
+                &none          &none          &none          &kp LGUI       &kp SPACE      &none     &none       &kp ENTER      &kp LALT       &none          &none          &none
             >;
-            sensor-bindings = <&encoder_msc SCRL_DOWN SCRL_UP>;
         };
 
+        // Layer 1: Number & Navigation
         layer_1 {
-            display-name = "Mouse Layer";
+            display-name = "Num/Nav";
             bindings = <
-                &trans           &trans             &trans                &trans                  &trans                                                 &kp SPACE    &kp RG(LEFT)     &kp RG(RIGHT)      &mkp MB3            &trans
-                &mkp MB5         &trans             &trans                &trans                  &trans                                                 &kp LG(UP)   &mkp MB1         &mkp MB2           &msc SCRL_UP        &msc SCRL_DOWN
-                &mkp MB4         &trans             &trans                &trans                  &trans                                                 &kp LG(DOWN) &kp LEFT         &kp UP             &kp RIGHT           &trans
-                &trans           &trans             &trans                &trans                  &trans            &trans              &trans           &trans       &trans           &kp DOWN           &trans              &kp LG(W)
+                &kp SLASH      &kp N7         &kp N8         &kp N9         &kp EQUAL                                               &kp DEL        &kp HOME       &kp UP         &kp PG_UP      &kp P
+                &kp ASTRK      &kp N4         &kp N5         &kp N6         &kp MINUS                                               &kp BSPC       &kp LEFT       &kp DOWN       &kp RIGHT      &kp LSHFT
+                &kp DOT        &kp N1         &kp N2         &kp N3         &kp PLUS                                                &kp UNDER      &kp END        &none          &kp PG_DN      &none
+                &trans         &trans         &trans         &kp LGUI       &kp SPACE      &trans    &trans      &kp ENTER      &kp LALT       &trans         &trans         &trans
             >;
         };
 
+        // Layer 2: Mouse Layer
         layer_2 {
-            display-name = "Number Layer";
+            display-name = "Mouse";
             bindings = <
-                &trans           &kp NUMBER_7       &kp NUMBER_8          &kp NUMBER_9            &kp EQUAL                                              &kp F1       &kp F2           &kp F7             &kp F10             &kp RSHIFT
-                &kp ASTERISK     &mt LALT NUMBER_4  &mt LSHIFT NUMBER_5   &mt LGUI NUMBER_6       &mt LCTRL MINUS                                        &mkp MB1     &kp LEFT         &kp UP             &kp RIGHT           &kp RGUI
-                &kp SLASH        &kp NUMBER_1       &kp NUMBER_2          &kp NUMBER_3            &kp PLUS                                               &mkp MB2     &none            &kp DOWN           &none               &kp RALT
-                &trans           &kp DOT            &kp NUMBER_0          &trans                  &kp LANG2         &trans              &trans           &kp LANG1    &trans           &kp RS(RC(TAB))    &kp RC(TAB)         &kp F12 
+                &none          &none          &none          &none          &none                                                   &none          &none          &none          &none          &none
+                &none          &none          &none          &none          &none                                                   &none          &mkp MB1       &mkp MB3       &mkp MB2       &none
+                &none          &none          &none          &none          &none                                                   &none          &none          &none          &none          &none
+                &trans         &trans         &trans         &kp LGUI       &kp SPACE      &trans    &trans      &kp ENTER      &kp LALT       &trans         &trans         &trans
             >;
-            sensor-bindings = <&encoder_kp C_VOL_UP C_VOL_DN>;
         };
 
+        // Layer 3: Function & Language
         layer_3 {
-            display-name = "Mark Layer";
+            display-name = "Func/Lang";
             bindings = <
-                &kp LS(LG(N4))   &kp F4             &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS   &none                                                  &kp TILDE    &kp EXCLAMATION  &kp AT_SIGN        &kp HASH            &kp DOLLAR
-                &emoji           &kp F5             &kp LEFT_BRACKET      &kp RIGHT_BRACKET       &none                                                  &kp GRAVE    &kp UNDER        &kp SINGLE_QUOTE   &kp DOUBLE_QUOTES   &kp BACKSLASH
-                &kp KP_NUMLOCK   &kp F11            &kp LEFT_BRACE        &kp RIGHT_BRACE         &none                                                  &kp PIPE     &kp PERCENT      &kp CARET          &kp AMPERSAND       &kp ASTERISK
-                &trans           &trans             &kp NUMBER_0          &trans                  &kp SPACE         &trans              &trans           &kp ENTER    &trans           &none              &none               &kp F12 
-            >;
-        };
-
-        layer_4 {
-            display-name = "Device Layer";
-            bindings = <
-                &none            &none              &none                 &none                   &bt BT_CLR                                             &bt BT_SEL 0 &bt BT_SEL 1     &bt BT_SEL 2       &bt BT_SEL 3        &bt BT_SEL 4
-                &none            &none              &none                 &none                   &none                                                  &none        &none            &none              &none               &none
-                &sys_reset       &none              &none                 &none                   &none                                                  &none        &none            &none              &none               &sys_reset
-                &bootloader      &bt BT_CLR_ALL     &none                 &none                   &none             &none               &studio_unlock   &none        &none            &none              &none               &bootloader
-            >;
-        };
-
-        layer_5 {
-            status = "reserved";
-            display-name = "Brank Layer";
-            bindings = <
-                &trans           &trans             &trans                &trans                  &trans                                                 &trans       &trans           &trans             &trans              &trans
-                &trans           &trans             &trans                &trans                  &trans                                                 &trans       &trans           &trans             &trans              &trans
-                &trans           &trans             &trans                &trans                  &trans                                                 &trans       &trans           &trans             &trans              &trans
-                &trans           &trans             &trans                &trans                  &trans            &trans              &trans           &trans       &trans           &trans             &trans              &trans
-            >;
-        };
-
-        layer_6 {
-            status = "reserved";
-            display-name = "Brank Layer";
-            bindings = <
-                &trans           &trans             &trans                &trans                  &trans                                                 &trans       &trans           &trans             &trans              &trans
-                &trans           &trans             &trans                &trans                  &trans                                                 &trans       &trans           &trans             &trans              &trans
-                &trans           &trans             &trans                &trans                  &trans                                                 &trans       &trans           &trans             &trans              &trans
-                &trans           &trans             &trans                &trans                  &trans            &trans              &trans           &trans       &trans           &trans             &trans              &trans
-            >;
-        };
-
-        layer_7 {
-            status = "reserved";
-            display-name = "Brank Layer";
-            bindings = <
-                &trans           &trans             &trans                &trans                  &trans                                                 &trans       &trans           &trans             &trans              &trans
-                &trans           &trans             &trans                &trans                  &trans                                                 &trans       &trans           &trans             &trans              &trans
-                &trans           &trans             &trans                &trans                  &trans                                                 &trans       &trans           &trans             &trans              &trans
-                &trans           &trans             &trans                &trans                  &trans            &trans              &trans           &trans       &trans           &trans             &trans              &trans
+                &none          &none          &none          &none          &none                                                   &none          &none          &none          &none          &none
+                &none          &none          &none          &none          &none                                                   &kp F2         &kp F6         &kp F7         &kp F8         &kp F9
+                &none          &none          &none          &none          &none                                                   &none          &kp GRAVE      &kp LANG1      &none          &none
+                &trans         &trans         &trans         &kp LGUI       &kp SPACE      &trans    &trans      &kp ENTER      &kp LALT       &trans         &trans         &trans
             >;
         };
     };
-
 };
