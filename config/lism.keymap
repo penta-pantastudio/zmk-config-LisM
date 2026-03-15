@@ -3,6 +3,11 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+/* LisMのシステムが要求するマウスボタンの定義を補完 */
+#define LCLK MB1
+#define RCLK MB2
+#define MCLK MB3
+
 &mt {
     tapping-term-ms = <300>;
     flavor = "balanced";
