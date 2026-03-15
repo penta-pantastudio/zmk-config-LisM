@@ -4,7 +4,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/mouse.h>
 
 &mt {
     tapping-term-ms = <300>;
@@ -28,25 +27,9 @@
         };
     };
 
-    behaviors {
-        encoder_msc: sensor_rotate_msc {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
-            tap-ms = <20>;
-        };
-
-        encoder_kp: sensor_rotate_kp {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: Default Layer
         default_layer {
             display-name = "Base";
             bindings = <
@@ -57,7 +40,6 @@
             >;
         };
 
-        // Layer 1: Number & Navigation
         layer_1 {
             display-name = "Num/Nav";
             bindings = <
@@ -68,18 +50,16 @@
             >;
         };
 
-        // Layer 2: Mouse Layer
         layer_2 {
             display-name = "Mouse";
             bindings = <
                 &none          &none          &none          &none          &none                                                   &none          &none          &none          &none          &none
-                &none          &none          &none          &none          &none                                                   &none          &mkp MB1       &mkp MB3       &mkp MB2       &none
+                &none          &none          &none          &none          &none                                                   &none          &mkp LCLK      &mkp MCLK      &mkp RCLK      &none
                 &none          &none          &none          &none          &none                                                   &none          &none          &none          &none          &none
                 &trans         &trans         &trans         &kp LGUI       &kp SPACE      &trans    &trans      &kp ENTER      &kp LALT       &trans         &trans         &trans
             >;
         };
 
-        // Layer 3: Function & Language
         layer_3 {
             display-name = "Func/Lang";
             bindings = <
