@@ -15,7 +15,6 @@
     quick-tap-ms = <300>;
 };
 
-
 / {
     macros {
         emoji: emoji_macro {
@@ -44,7 +43,6 @@
         };
     };
 
-/ {
     keymap {
         compatible = "zmk,keymap";
 
