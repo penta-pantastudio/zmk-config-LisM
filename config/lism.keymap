@@ -13,13 +13,6 @@
 };
 
 / {
-    // ロータリーエンコーダー（左側）の設定
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder>;
-        triggers-per-rotation = <20>;
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -31,8 +24,6 @@
                 &kp Z          &kp X          &kp C          &kp V          &kp SLASH                                               &kp G          &kp D          &kp M          &kp J          &kp B
                 &none          &none          &none          &kp LGUI       &kp SPACE      &none     &none       &kp ENTER      &kp LALT       &none          &none          &none
             >;
-            // 左側のツマミを回した時の動き（上下スクロールに設定）
-            sensor-bindings = <&ib_wheel_scalel>;
         };
 
         layer_1 {
@@ -43,7 +34,6 @@
                 &kp DOT        &kp N1         &kp N2         &kp N3         &kp PLUS                                                &kp UNDER      &kp END        &none          &kp PG_DN      &none
                 &trans         &trans         &trans         &kp LGUI       &kp SPACE      &trans    &trans      &kp ENTER      &kp LALT       &trans         &trans         &trans
             >;
-            sensor-bindings = <&ib_wheel_scalel>;
         };
 
         layer_2 {
@@ -54,7 +44,6 @@
                 &none          &none          &none          &none          &none                                                   &none          &none          &none          &none          &none
                 &trans         &trans         &trans         &kp LGUI       &kp SPACE      &trans    &trans      &kp ENTER      &kp LALT       &trans         &trans         &trans
             >;
-            sensor-bindings = <&ib_wheel_scalel>;
         };
 
         layer_3 {
@@ -65,7 +54,6 @@
                 &none          &none          &none          &none          &none                                                   &none          &kp GRAVE      &kp LANG1      &none          &none
                 &trans         &trans         &trans         &kp LGUI       &kp SPACE      &trans    &trans      &kp ENTER      &kp LALT       &trans         &trans         &trans
             >;
-            sensor-bindings = <&ib_wheel_scalel>;
         };
     };
 };
